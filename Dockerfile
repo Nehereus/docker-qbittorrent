@@ -51,12 +51,6 @@ RUN \
   mkdir /qbt && \
   QBT_VERSION=$(curl -sL "https://api.github.com/repos/fedarovich/qbittorrent-cli/releases" \
       | awk '/tag_name/{print $4;exit}' FS='[""]'); \
-  curl -o \
-    /tmp/qbt.tar.gz -L \
-    "https://github.com/fedarovich/qbittorrent-cli/releases/download/${QBT_VERSION}/qbt-linux-alpine-x64-${QBT_VERSION:1}.tar.gz" && \
-  tar xf \
-    /tmp/qbt.tar.gz -C \
-    /qbt && \
   echo "**** cleanup ****" && \
   apk del --purge \
     build-dependencies && \
